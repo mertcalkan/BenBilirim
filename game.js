@@ -1,13 +1,18 @@
+
+
+
 var rules = document.getElementById("rules");
 var play = document.getElementById("game");
 var main = document.getElementById("main");
-var gameArea = document.getElementById("gameArea");
+var letterCardsArea = document.getElementById("LetterCardsArea");
 
 
 $("#game").click(function () {
 
-  rules.parentElement.removeChild(rules);
-  play.parentElement.removeChild(play);
+  // rules.parentElement.removeChild(rules);
+  // play.parentElement.removeChild(play);
+  $("#game").remove();
+  $("#rules").remove();
 
   const waitingText = document.createElement('h2');
   waitingText.classList.add("waitingText");
@@ -24,7 +29,7 @@ $("#game").click(function () {
     for (let i = 0; i < elementsCount; i++) {
       const element = document.createElement('div');
       element.classList.add("letterCards");
-      gameArea.appendChild(element);
+      letterCardsArea.appendChild(element);
       var letterCardsText = document.createElement("h1");
       letterCardsText.classList.add("letterCardsText");
       element.appendChild(letterCardsText);
@@ -36,10 +41,15 @@ $("#game").click(function () {
 
 
       var node = document.querySelectorAll('.letterCardsText');
-      var currentLetters = ['A', 'P', 'H', 'E', 'X', 'T', 'W', 'İ', 'N', 'G', 'A', 'B', 'C'];
+      // var currentLetters = ['A', 'P', 'H', 'E', 'X', 'T', 'W', 'İ', 'N', 'G', 'A', 'B', 'C'];
       var DomArray = Array.from(node);
-      DomArray[i].innerHTML = currentLetters[i];
-      console.log(currentLetters.values);
+      // DomArray[i].innerHTML = currentLetters[i];
+      // console.log(currentLetters.values);
+      let stringLetters = questions[0].mixedLetters.split("");
+      DomArray[i].innerHTML = stringLetters[i];
+      console.log(stringLetters);
+
+      
 
 
 
@@ -51,19 +61,23 @@ $("#game").click(function () {
 
 
     }
+    
+     var questionText = document.createElement("h3");
+     questionText.className = "question";
+     $("#questionAndSubmit").append(questionText);
+     questionText.innerHTML = questions[0].question;
+     var submitAnswer = document.createElement("button");
+     submitAnswer.className = "submitAnswer";
+     $("#questionAndSubmit").append(submitAnswer);
+     submitAnswer.innerHTML = "Submit";
+
 
     // window.onbeforeunload = function () {
     //   return "Are you sure you want to close the window?";
     // }
     // creating elements dynamically with javascript during the game.
 
-    //  const inputDiv = document.createElement("div");
-    //  inputDiv.classList.add("DivOfInput");
-    //  document.body.appendChild(inputDiv);
-    //  var input = document.createElement("input");
-    //  input.type = "text";
-    //  input.className = "inputText"; // set the CSS class
-    //  inputDiv.appendChild(input);
+    
     var outputVocab = document.createElement("div");
     document.body.appendChild(outputVocab);
     outputVocab.className = "outputVocab";
@@ -87,7 +101,7 @@ $("#game").click(function () {
         outputText.innerHTML = clickedLetter;
 
 
-        //  setTimeout(() =>   $(this).removeClass("toggle") , 50);
+       
 
 
 
@@ -111,7 +125,7 @@ $("#game").click(function () {
           // if(deletedVariation =="ARMUT"){
           //   console.log("HELAL");
           // }
-          var sound1 = new Audio('./sound effects/CorrectSoundEffect.mp3');
+          var sound1 = new Audio('./sound effects/CorrectSoundEffect.mp3 ');
           let deletedVer = $(".outputText").text();
           console.log(deletedVer);
           
@@ -143,6 +157,7 @@ $("#game").click(function () {
           soundSame.play();
           console.log("yiha");
          }
+         
          //  else {
          
        //  }
@@ -176,8 +191,8 @@ $("#game").click(function () {
 
 });
 
-$("#rules").click(function () {
+// $("#rules").click(function () {
 
-  rules.parentElement.removeChild(rules);
-  play.parentElement.removeChild(play);
-});
+//   rules.parentElement.removeChild(rules);
+//   play.parentElement.removeChild(play);
+// });
