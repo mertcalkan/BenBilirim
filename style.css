@@ -92,8 +92,8 @@ input {
 .outputVocab {
     display: grid;
     grid-gap: 5rem;
-    grid-template-columns: repeat(12, 2rem);
-    grid-template-rows: repeat(12, 2rem);
+    grid-template-columns: repeat(10, 2rem);
+    grid-template-rows: repeat(10, 2rem);
     align-items: center;
     justify-content: center;
 }
@@ -127,7 +127,7 @@ input {
 .cross {
 
     font-size: 20px;
-    color: rgba(0, 242, 255, 0.611);
+    color: white;
     position: relative;
     right: -80px;
     bottom: 82px;

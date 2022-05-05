@@ -45,9 +45,9 @@ $("#game").click(function () {
       var DomArray = Array.from(node);
       // DomArray[i].innerHTML = currentLetters[i];
       // console.log(currentLetters.values);
-      let stringLetters = questions[0].mixedLetters.split("");
+      var stringLetters = questions[0].mixedLetters.split("");
       DomArray[i].innerHTML = stringLetters[i];
-      console.log(stringLetters);
+      // console.log(stringLetters);
 
       
 
@@ -69,7 +69,7 @@ $("#game").click(function () {
      var submitAnswer = document.createElement("button");
      submitAnswer.className = "submitAnswer";
      $("#questionAndSubmit").append(submitAnswer);
-     submitAnswer.innerHTML = "Submit";
+     submitAnswer.innerHTML = "Doğru mu Görelim";
 
 
     // window.onbeforeunload = function () {
@@ -125,20 +125,25 @@ $("#game").click(function () {
           // if(deletedVariation =="ARMUT"){
           //   console.log("HELAL");
           // }
-          var sound1 = new Audio('./sound effects/CorrectSoundEffect.mp3 ');
-          let deletedVer = $(".outputText").text();
+          $(".submitAnswer").click(function () {
+          // var sound1 = new Audio('./sound effects/CorrectSoundEffect.mp3 ');
+          var deletedVer = $(".outputText").text();
           console.log(deletedVer);
           
-          var playSoundDeletedScenario = function () {
-            if (deletedVer == "APHEXTWİN") {
-              sound1.play();
-              console.log("yiha");
-             }
-             //  else {
+          // let playSoundDeletedScenario = function () {
+          //   if (deletedVer == questions[0].answer) {
+          //     sound1.play(
+          //       // waitingText.innerHTML = "Doğru Cevap!"
+          //     );
+          //     console.log("yiha");
+              
+          //    }
+          //    //  else {
              
-           //  }
-          };
-          playSoundDeletedScenario();
+          //  //  }
+          // };
+          // playSoundDeletedScenario();
+        });
 
 
 
@@ -149,20 +154,41 @@ $("#game").click(function () {
 
 
       });
-      let result = $(".outputText").text();
+      $(".submitAnswer").click(function () {
+       
+        let result = $(".outputText").text();
       console.log(result);
-      var soundSame = new Audio('./sound effects/CorrectSoundEffect.mp3');
-      var playSoundNormalScenario = function () {
-        if (result == "APHEXTWİN") {
-          soundSame.play();
-          console.log("yiha");
-         }
-         
-         //  else {
-         
-       //  }
-      };
-      playSoundNormalScenario();
+        
+        let playSoundNormalScenario = function () {
+          var soundSame = new Audio('./sound effects/CorrectSoundEffect.mp3');
+          if (result == questions[0].answer ) {
+            soundSame.play();
+            console.log("yiha");
+              setTimeout(() => questionText.innerHTML = questions[1].question, 6500);
+              setTimeout(() =>  $(".output" ).remove(), 6500);
+              
+              
+             
+              for (let x = 0; x < elementsCount; x++){
+                stringLetters = questions[1].mixedLetters.split("");
+                // DomArray[i].innerHTML = stringLetters[i];
+                setTimeout(() => DomArray[x].innerHTML = stringLetters[x] , 6500); 
+               
+              }
+              
+              
+           
+           }
+           //  else {
+           
+         //  }
+        };
+        playSoundNormalScenario();
+      });
+      
+     
+     
+       
 
       //  var sound1 = new Audio('./sound effects/CorrectSoundEffect.mp3');
       
