@@ -1,10 +1,22 @@
-
-
-
 var rules = document.getElementById("rules");
 var play = document.getElementById("game");
 var main = document.getElementById("main");
 var letterCardsArea = document.getElementById("LetterCardsArea");
+// Shuffling our array first of our code. just a preference. you can do it later. depends on algorithm which you set up.d
+var UnShuffledQuestionIndexNumber = [1,2,3,4,5,6,7,8,9,10];
+var indexOrigin = 0;
+function shuffleArray(UnShuffledQuestionIndexNumber) {
+  for (var i = UnShuffledQuestionIndexNumber.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * i); // no +1 here!
+      var temp = UnShuffledQuestionIndexNumber[i];
+      UnShuffledQuestionIndexNumber[i] = UnShuffledQuestionIndexNumber[j];
+      UnShuffledQuestionIndexNumber[j] = temp;
+  }
+  // return UnShuffledQuestionIndexNumber;
+  console.log(UnShuffledQuestionIndexNumber);
+}
+shuffleArray(UnShuffledQuestionIndexNumber);
+
 
 
 $("#game").click(function () {
@@ -25,6 +37,9 @@ $("#game").click(function () {
 
 
   function uploadingElements() {
+    // if (playSoundNormalScenario() == true ) {
+    // elementsCount = elementsCount - 1;
+    // }
     let elementsCount = 12;
     for (let i = 0; i < elementsCount; i++) {
       const element = document.createElement('div');
@@ -45,11 +60,24 @@ $("#game").click(function () {
       var DomArray = Array.from(node);
       // DomArray[i].innerHTML = currentLetters[i];
       // console.log(currentLetters.values);
-      var stringLetters = questions[0].mixedLetters.split("");
+     
+      
+      var stringLetters = questions[(UnShuffledQuestionIndexNumber[indexOrigin])].mixedLetters.split("");
+      // function shuffleletters(stringLetters) {
+      //   for (var i = stringLetters.length - 1; i > 0; i--) {
+      //       var j = Math.floor(Math.random() * i); // no +1 here!
+      //       var temp = stringLetters[i];
+      //       stringLetters[i] = stringLetters[j];
+      //       stringLetters[j] = temp;
+      //   }
+      //   // return UnShuffledQuestionIndexNumber;
+      //   console.log(stringLetters);
+      // }
+      // shuffleletters(stringLetters);
       DomArray[i].innerHTML = stringLetters[i];
       // console.log(stringLetters);
 
-      
+
 
 
 
@@ -61,15 +89,15 @@ $("#game").click(function () {
 
 
     }
-    
-     var questionText = document.createElement("h3");
-     questionText.className = "question";
-     $("#questionAndSubmit").append(questionText);
-     questionText.innerHTML = questions[0].question;
-     var submitAnswer = document.createElement("button");
-     submitAnswer.className = "submitAnswer";
-     $("#questionAndSubmit").append(submitAnswer);
-     submitAnswer.innerHTML = "Doğru mu Görelim";
+
+    var questionText = document.createElement("h3");
+    questionText.className = "question";
+    $("#questionAndSubmit").append(questionText);
+    questionText.innerHTML = questions[(UnShuffledQuestionIndexNumber[indexOrigin])].question;
+    var submitAnswer = document.createElement("button");
+    submitAnswer.className = "submitAnswer";
+    $("#questionAndSubmit").append(submitAnswer);
+    submitAnswer.innerHTML = "Doğru mu Görelim";
 
 
     // window.onbeforeunload = function () {
@@ -77,7 +105,7 @@ $("#game").click(function () {
     // }
     // creating elements dynamically with javascript during the game.
 
-    
+
     var outputVocab = document.createElement("div");
     document.body.appendChild(outputVocab);
     outputVocab.className = "outputVocab";
@@ -101,7 +129,7 @@ $("#game").click(function () {
         outputText.innerHTML = clickedLetter;
 
 
-       
+
 
 
 
@@ -125,25 +153,30 @@ $("#game").click(function () {
           // if(deletedVariation =="ARMUT"){
           //   console.log("HELAL");
           // }
-          $(".submitAnswer").click(function () {
-          // var sound1 = new Audio('./sound effects/CorrectSoundEffect.mp3 ');
+         
           var deletedVer = $(".outputText").text();
           console.log(deletedVer);
           
-          // let playSoundDeletedScenario = function () {
-          //   if (deletedVer == questions[0].answer) {
-          //     sound1.play(
-          //       // waitingText.innerHTML = "Doğru Cevap!"
-          //     );
-          //     console.log("yiha");
-              
-          //    }
-          //    //  else {
-             
-          //  //  }
-          // };
-          // playSoundDeletedScenario();
-        });
+          $(".submitAnswer").click(function () {
+            var sound1 = new Audio('./sound effects/CorrectSoundEffect.mp3 ');
+
+
+
+            function playSoundDeletedScenario() {
+              if (deletedVer == questions[(UnShuffledQuestionIndexNumber[indexOrigin])].answer) {
+                
+                sound1.play(
+                  // waitingText.innerHTML = "Doğru Cevap!"
+                );
+                console.log("yiha");
+
+              }
+              //  else{
+              //  soundSameWrong.play();
+              //  }
+            };
+            playSoundDeletedScenario();
+          });
 
 
 
@@ -151,47 +184,62 @@ $("#game").click(function () {
 
         }
 
-
+     
 
       });
-      $(".submitAnswer").click(function () {
-       
-        let result = $(".outputText").text();
+      var soundSame = new Audio('./sound effects/CorrectSoundEffect.mp3 ');
+      var soundSameWrong = new Audio('./sound effects/WrongSoundEffect.mp3 ');
+      let result = $(".outputText").text();
       console.log(result);
-        
-        let playSoundNormalScenario = function () {
-          var soundSame = new Audio('./sound effects/CorrectSoundEffect.mp3');
-          if (result == questions[0].answer ) {
-            soundSame.play();
+      $(".submitAnswer").click(function () {
+
+
+
+        function playSoundNormalScenario() {
+          if (result == questions[(UnShuffledQuestionIndexNumber[indexOrigin])].answer) {
+            //  deletedVer = "";
+            // setTimeout(() => soundSame.play(
+
+
+            // ), 500);
+            soundSame.play(
+
+
+            )
+            // result = "";
             console.log("yiha");
-              setTimeout(() => questionText.innerHTML = questions[1].question, 6500);
-              setTimeout(() =>  $(".output" ).remove(), 6500);
-              
-              
-             
-              for (let x = 0; x < elementsCount; x++){
-                stringLetters = questions[1].mixedLetters.split("");
-                // DomArray[i].innerHTML = stringLetters[i];
-                setTimeout(() => DomArray[x].innerHTML = stringLetters[x] , 6500); 
-               
-              }
-              
-              
-           
-           }
-           //  else {
-           
-         //  }
+            indexOrigin = indexOrigin + 1;
+            console.log(UnShuffledQuestionIndexNumber[indexOrigin]);
+            setTimeout(() => questionText.innerHTML = questions[(UnShuffledQuestionIndexNumber[indexOrigin])].question, 5500);
+            setTimeout(() => $(".output").remove(), 5500);
+
+
+
+            for (let x = 0; x < elementsCount; x++) {
+              stringLetters = questions[(UnShuffledQuestionIndexNumber[indexOrigin])].mixedLetters.split("");
+              // DomArray[i].innerHTML = stringLetters[i];
+              setTimeout(() => DomArray[x].innerHTML = stringLetters[x], 5500);
+              // return true;
+
+            }
+
+
+
+          } 
+          // else{
+          //   soundSameWrong.play();
+          // }
+
+          
         };
         playSoundNormalScenario();
       });
-      
-     
-     
-       
+
+
+
 
       //  var sound1 = new Audio('./sound effects/CorrectSoundEffect.mp3');
-      
+
 
 
 
