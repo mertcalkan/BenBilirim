@@ -1,67 +1,79 @@
 const questions = [{
     question: "Arkadaşım Eşek , Gülpembe gibi şarkılarla bilinen Türk şarkıcı kimdir? ",
-    answer: "BARIŞMANÇO",
-    mixedLetters:"BARIŞMANÇOÜS"
+    answer: "BARIŞMANÇO"
+    // mixedLetters:"BARIŞMANÇOÜS"
 },
 {
     question: "Erkeklerle kadınların birlikte oynadıkları tek takım sporu nedir? ",
-    answer: "KORFBOL",
-    mixedLetters:"KORFBOLRCJXK"
+    answer: "KORFBOL"
+    // mixedLetters:"KORFBOLRCJXK"
 },
 {
     question: "Türkiyenin başkenti neresidir?",
-    answer: "ANKARA",
-    mixedLetters:"ANKARAOCPSJD"
+    answer: "ANKARA"
+    // mixedLetters:"ANKARAOCPSJD"
 },
 {
-    question: "Birini uğrarken hangi ikilemeyi söyleriz?",
-    answer: "GÜLEGÜLE",
-    mixedLetters:"GÜLEGÜLESEHG"
+    question: "Birini uğurlarken hangi ikilemeyi söyleriz?",
+    answer: "GÜLEGÜLE"
+    // mixedLetters:"GÜLEGÜLESEHG"
 },
 {
     question: "Simyanın diğer adı nedir?",
-    answer: "ALŞİMİ",
-    mixedLetters:"ALŞİMİEVSFGA"
+    answer: "ALŞİMİ"
+    // mixedLetters:"ALŞİMİEVSFGA"
 },
 {
     question: "Genellikle plastikten yapılan ve çapı yaklaşık 20–25 cm olan diske ne ad verilir? ",
-    answer: "FRİZBİ",
-    mixedLetters:"FRİZBİEFTHEY"
+    answer: "FRİZBİ"
+    // mixedLetters:"FRİZBİEFTHEY"
 },
 {
     question: "Cümle kelimesinin eş anlamlısı nedir?",
-    answer: "TÜMCE",
-    mixedLetters:"TÜMCEGTHYSAE"
+    answer: "TÜMCE"
+    // mixedLetters:"TÜMCEGTHYSAE"
 },
 {
     question: "Mustafa Kemal Atatürk hangi şehirde doğmuştur?",
-    answer: "SELANİK",
-    mixedLetters: "SELANİKFRHED"
+    answer: "SELANİK"
+    // mixedLetters: "SELANİKFRHED"
 },
 {
     question: "İnsanda mutluluk, canlılık ve zindelik hissi veren nörotransmitter madde nedir? ",
-    answer: "SEROTONİN",
-    mixedLetters: "SEROTONİNFRV"
+    answer: "SEROTONİN"
+    // mixedLetters: "SEROTONİNFRV"
 },
 {
     question: "Kaldırma kuvvetini bulan bilim adamı kimdir?",
-    answer: "ARŞİMET",
-    mixedLetters: "ARŞİMETFRXBŞ"
+    answer: "ARŞİMET"
+    // mixedLetters: "ARŞİMETFRXBŞ"
 },
+
 {
     question: "Satrançta pat kelimesi ne anlama gelir?",
-    answer: "BERABERLİK",
-    mixedLetters: "BERABERLİKŞC"
-},
-{
-    question: "Satrançta pat kelimesi ne anlama gelir?",
-    answer: "BERABERLİK",
-    mixedLetters: "BERABERLİKŞC"
+    answer: "BERABERLİK"
+    // mixedLetters: "BERABERLİKŞC"
 },
 {
     question: "Bir açının köşesinden geçen ve kollara eşit uzaklıkta kalarak açıyı iki eşit açıya bölen yarıdoğruya ne ad verilir ",
-    answer: "AÇIORTAY",
-    mixedLetters: "AÇIORTAYSCBÖ"
-}
+    answer: "AÇIORTAY"
+    // mixedLetters: "AÇIORTAYSCBÖ"
+},
+{
+    question: "Tetsuya Miyamoto tarafından 2004 yılında icat edilen aritmetik ve mantığa dayalı zeka oyunu nedir?",
+    answer: "KENDOKU"
+    
+},
+{
+    question: "Protein sentezinden sorumlu hücre organeli nedir?",
+    answer: "RİBOZOM"
+    
+},
+{
+    question: "Yalnız 1'e ve kendisine kalansız bölünebilen 1'den büyük doğal sayılara ne denir",
+    answer: "ASALSAYI"
+    
+},
+
 ]
 

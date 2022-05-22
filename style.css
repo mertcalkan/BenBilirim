@@ -134,7 +134,22 @@ input {
     font-weight: bolder;
 
 }
-
+.pointText{
+    position: relative;
+}
+.pointText{
+position: absolute;
+top: 0px;
+right: 40px;
+}
+.countdown{
+position: relative;
+}
+.countdown{
+position: absolute;
+top: 0px;
+right: 150px;
+}
 i {
     color: white;
 }

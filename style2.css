@@ -1,0 +1,77 @@
+*{
+    /* margin:0;
+    padding:0; */
+    box-sizing: border-box;
+}
+body {
+    background-color: #804FB3;
+    color: white;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.GameName,
+#waitingDiv {
+    text-align: center;
+}
+
+/* .waitingText{
+margin-top: 50px;
+} */
+
+#LetterCardsArea {
+    margin-top: 150px;
+    display: grid;
+    grid-gap: 5rem;
+    grid-template-columns: repeat(6, 3rem); 
+    grid-template-rows: repeat(6, 3rem); 
+      
+  
+    align-items: center;
+    justify-content: center;
+    /* top: -30px; */
+    height: 200%;
+    width:100%;
+
+}
+.outputVocab{
+    display:grid;
+    grid-gap: 5rem ;
+    grid-template-columns: repeat(10, 2rem);
+    grid-template-rows: repeat(10, 2rem);
+    align-items: center;
+    justify-content: center;
+}
+.outputVocab{
+    /* border-color: black; */
+            
+    position: relative;
+    bottom:200px;}
+    
+.output{
+    /* margin:10px; */
+    width:100px;
+    height:100px;
+    border-style: solid;
+    border-color:rgba(0, 0, 0, 0.578);
+    box-shadow:rgba(0,0,0,0.2) 0px 5px 15px;
+   
+    
+    }
+/* @media (min-width:768px) {
+    #LetterCardsArea{
+    display:block;
+    padding:16px;
+    grid-template-columns: 1fr 1fr 1FR 1fr;
+} */
+    
+
+
+.letterCards {
+
+    height: 200%;
+    width: 200%;
+
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.578);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
+}
