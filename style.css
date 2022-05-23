@@ -7,7 +7,7 @@ body {
     color: white;
     font-family: 'Nunito Sans', sans-serif;
     background-color: #804FB3;
-    height: 100%;
+    height: 50%;
 }
 
 .GameName {
@@ -194,4 +194,88 @@ h1 {
     margin: 16px;
     padding: 7.5px;
     border-color: black;
+}
+@media (min-width: 300px) and (max-width : 767px) {
+    .letterCards{
+        height:90%;
+        width:90%;
+    }
+    .letterCardsText{
+        font-size:140%;
+    }
+    .output {
+        /* margin:10px; */
+        height:70%;
+        width:70%;
+        border-style: solid;
+        border-color: rgba(0, 0, 0, 0.578);
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
+    
+    
+    }
+    #LetterCardsArea {
+        display: grid;
+        grid-gap: 1rem;
+        grid-template-columns: repeat(6, 3rem);
+        grid-template-rows: repeat(6, 3rem);
+        align-items: center;
+        justify-content: center;
+       
+        height: 100%;
+    
+    }
+    .outputText{
+        font-size:140%;    
+    }
+    .outputVocab {
+        display: grid;
+        grid-gap: 0.5rem;
+        grid-template-columns: repeat(9, 2rem);
+        grid-template-rows: repeat(9, 2rem);
+        align-items: center;
+        justify-content: center;
+        position:relative;
+        top:20px;
+    }
+    .submitAnswer{
+        position:absolute;
+        top:100px;
+       
+        background-color: #804FB3;
+        color: white;
+        border-radius: 20px;
+        font-size: 16px;
+        margin: 16px;
+        padding: 7.5px;
+        border-color: black;
+    }
+    /* .question{
+        position:relative;
+        top:150px;  
+        font-size:13px; 
+    } */
+    .GameName{
+        position:relative;
+        top:60px;
+    }
+    #questionAndSubmit{
+        position:relative;
+        bottom:200px;
+        display: flex;
+    align-items: center;
+    justify-content: center;
+        
+    }
+    .outputText{
+        font-size:12px;
+        position:relative;
+        top:-2px;
+    }
+    .cross{
+        font-size:6px;
+        position: relative;
+        bottom:43px;
+        left:17px;
+    }
+    
 }
