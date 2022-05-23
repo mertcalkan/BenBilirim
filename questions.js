@@ -70,72 +70,10 @@ const questions = [{
     
 },
 {
-    question: "Yalnız 1'e ve kendisine kalansız bölünebilen 1'den büyük doğal sayılara ne denir?",
+    question: "Yalnız 1'e ve kendisine kalansız bölünebilen 1'den büyük doğal sayılara ne denir",
     answer: "ASALSAYI"
     
 },
-{
-    question: "1965'te Londra'da kurulan meşhur İngiliz progresif/psikedelik rock müzik grubu kimdir?",
-    answer: "PİNKFLOYD"
-    
-},
-
-{
-    question: "Osmanlı'da Yeniçerilerin su ihtiyacını karşılamakla görevli askerlerin bağlı olduğu ocağa ne ad verilir?",
-    answer: "SAKALAR"
-    
-},
-{
-    question: "Osmanlı'da Yeniçerilerin su ihtiyacını karşılamakla görevli askerlerin bağlı olduğu ocağa ne ad verilir?",
-    answer: "SAKALAR"
-    
-},
-{
-    question: "Miranda dilinin semantikleri üzerine kurulu olan saf bir işlevsel programlama dili nedir?",
-    answer: "HASKELL"
-    
-},
-{
-    question: "Hatalı yürüme olarak da bilinen basketbol kuralı nedir?",
-    answer: "STEPS"
-    
-},
-{
-    question: "Ticari yada sanayi bir kuruluşu tanıtmak veya herhangi bir malın satışını arttırmak amacıyla kullanılan çeşitli yolların genel adına ne denir ?",
-    answer: "REKLAM"
-    
-},
-{
-    question: "Pusulada ( N ) harfi hangi yönü ifade eder ?",
-    answer: "KUZEY"
-    
-},
-{
-    question: "Nötron sayısı farklı proton sayısı aynı olan atomlara ne denir ?",
-    answer: "İZOTOP"
-    
-},
-{
-    question: "İlk Türk denizci kimdir ?",
-    answer: "ÇAKABEY"
-    
-},
-{
-    question: "Büyük Okyanus ile Atlas Okyanusu’nu birbirine bağlayan kanalın adı nedir?",
-    answer: "PANAMA"
-    
-},
-{
-    question: "Kazakistan’ın başkenti neresidir?",
-    answer: "ASTANA"
-    
-},
-
-
-
-
-
-
 
 ]
 

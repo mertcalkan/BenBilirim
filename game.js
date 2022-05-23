@@ -4,7 +4,7 @@ var main = document.getElementById("main");
 var letterCardsArea = document.getElementById("LetterCardsArea");
 // Shuffling our array first of our code. just a preference. you can do it later. depends on algorithm which you set up
 var indexStart = 1;
-var indexEnd = 20;
+var indexEnd = 16;
 
 var UnShuffledQuestionIndexNumber = [];
 
@@ -13,7 +13,7 @@ while(indexStart < indexEnd+1){
 }
 // var UnShuffledQuestionIndexNumber = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
 var flag = true;
-const startingMinute = 100;
+const startingMinute = 1;
 let time = startingMinute*60;
 // Countdown Variables.
 
