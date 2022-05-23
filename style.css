@@ -194,7 +194,7 @@ h1 {
     margin: 16px;
     padding: 7.5px;
     border-color: black;
-<<<<<<< HEAD
+
 }
 @media (min-width: 300px) and (max-width : 767px) {
     .letterCards{
@@ -279,6 +279,5 @@ h1 {
         left:17px;
     }
     
-=======
->>>>>>> parent of ea538d9 (mobile update v4.0 new size fix on css mobile)
+
 }
