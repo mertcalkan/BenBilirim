@@ -5,30 +5,35 @@ var letterCardsArea = document.getElementById("LetterCardsArea");
 // Shuffling our array first of our code. just a preference. you can do it later. depends on algorithm which you set up
 var indexStart = 1;
 var indexEnd = 16;
+var mediaQueryManipulator = window.matchMedia("(min-width: 300px) and (max-width: 765px)");
+
+
+
 
 var UnShuffledQuestionIndexNumber = [];
 
-while(indexStart < indexEnd+1){
+while (indexStart < indexEnd + 1) {
   UnShuffledQuestionIndexNumber.push(indexStart++);
 }
-// var UnShuffledQuestionIndexNumber = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
+
 var flag = true;
-const startingMinute = 1;
-let time = startingMinute*60;
+const startingMinute = 10;
+let time = startingMinute * 60;
 // Countdown Variables.
 
 
 // var ArrayOfLetters = ["A","B","C","Ç","D","E","F","G","H","I","İ","J","K","L","M","N","O","Ö","P","R","S","Ş","T","U","Ü","V","Y","Z"];
 var indexOrigin = 0;
 var totalPoint = 0;
+
 function shuffleArray(UnShuffledQuestionIndexNumber) {
   for (var i = UnShuffledQuestionIndexNumber.length - 1; i > 0; i--) {
-      var j = Math.floor(Math.random() * i); // no +1 here!
-      var temp = UnShuffledQuestionIndexNumber[i];
-      UnShuffledQuestionIndexNumber[i] = UnShuffledQuestionIndexNumber[j];
-      UnShuffledQuestionIndexNumber[j] = temp;
+    var j = Math.floor(Math.random() * i); // no +1 here!
+    var temp = UnShuffledQuestionIndexNumber[i];
+    UnShuffledQuestionIndexNumber[i] = UnShuffledQuestionIndexNumber[j];
+    UnShuffledQuestionIndexNumber[j] = temp;
   }
-  
+
   // return UnShuffledQuestionIndexNumber;
   // console.log(UnShuffledQuestionIndexNumber);
 }
@@ -64,72 +69,89 @@ $("#game").click(function () {
 
     function shuffleKeyLetters() {
       for (var f = stringLetters.length - 1; f > 0; f--) {
-          var l = Math.floor(Math.random() * f); // no +1 here!
-          var temp = stringLetters[f];
-          stringLetters[f] = stringLetters[l];
-          stringLetters[l] = temp;
+        var l = Math.floor(Math.random() * f); // no +1 here!
+        var temp = stringLetters[f];
+        stringLetters[f] = stringLetters[l];
+        stringLetters[l] = temp;
       }
-      
-       
-      
+
+
+
     }
     shuffleKeyLetters();
     var countDownTimer = document.createElement("h3");
     countDownTimer.className = "countdown";
     document.body.appendChild(countDownTimer);
-    if(flag)
-    {
-      setInterval(updateCountDown,1000)
-        flag = false;
+    if (flag) {
+      setInterval(updateCountDown, 1000)
+      flag = false;
     }
-    
-   function updateCountDown(){
-     const minutes = Math.floor(time/60);
-     let seconds = time % 60;
-     
-     seconds = seconds < 10 ? '0' + seconds : seconds ;
-     
-     time--;
-     if((time == -2 ) ){
-      // countDownTimer.innerHTML =`Süre: ${0} : ${0}`
-      // alert(`Süreniz bitti. Oyunda kazandığınız toplam puan : ${totalPoint}`);
-      if (confirm(`Süreniz bitti. Oyunda kazandığınız toplam puan : ${totalPoint}`)) {
-        window.location.href = "/index.html";
-    }
-    else{
-      window.location.href = "/index.html";  
-    }
-      // time--;
-      // if((seconds == -1 && time == -2)){
+
+    function updateCountDown() {
+      const minutes = Math.floor(time / 60);
+      let seconds = time % 60;
+
+      seconds = seconds < 10 ? '0' + seconds : seconds;
+      
+  
+      // if(seconds == seconds < 10 ? '0' + -2 : -2){
       //   return false;
       // }
-      
-      
-    }
     
-     
-     var t_minutes;
-     if (minutes<10) {
-      t_minutes = "0" + minutes;
-    }
-    else {
-      t_minutes = minutes;
-    }
-     countDownTimer.innerHTML =`Süre: ${t_minutes} : ${seconds}`
-     
-    
-    
-   }
-   
-   
-  
+      // if(time > -3){
 
     
+       
+        
+        
+        countDownTimer.innerHTML = `Süre: ${t_minutes} : ${seconds}`
+        time--;
+        
+      if ((time == -2)) {
+        countDownTimer.style.display="none";
+       
+        
+        // countDownTimer.innerHTML = `Süre: ${0} : ${0}`
+        // countDownTimer.innerHTML =`Süre: ${0} : ${0}`
+        // alert(`Süreniz bitti. Oyunda kazandığınız toplam puan : ${totalPoint}`);
+        if (confirm(`Süreniz bitti. Oyunda kazandığınız toplam puan : ${totalPoint}`)) {
+          window.location.href = "/index.html";
+          countDownTimer.style.display="none";
+          
+        } else {
+          window.location.href = "/index.html";
+        }
+        // time--;
+        // if((seconds == -1 && time == -2)){
+        //   return false;
+        // }
+
+
+      }
+    // }
+
+
+      var t_minutes;
+      if (minutes < 10) {
+        t_minutes = "0" + minutes;
+      } else {
+        t_minutes = minutes;
+      }
+      countDownTimer.innerHTML = `Süre: ${t_minutes} : ${seconds}`
+      
+
+
+    }
+
+
+
+
+
     // if (playSoundNormalScenario() == true ) {
     // elementsCount = elementsCount - 1;
     // }
     // let elementsCount = 12;
-    
+
     for (let i = 0; i < questions[UnShuffledQuestionIndexNumber[indexOrigin]].answer.length; i++) {
       const element = document.createElement('div');
       element.classList.add("letterCards");
@@ -149,13 +171,13 @@ $("#game").click(function () {
       var DomArray = Array.from(node);
       // DomArray[i].innerHTML = currentLetters[i];
       // console.log(currentLetters.values);
-     
-      
-     
+
+
+
       // var stringLetters = questions[(UnShuffledQuestionIndexNumber[indexOrigin])].answer.split("");
-      
-    
-      
+
+
+
       // shuffleKeyLetters();
       // function shuffleletters(stringLetters) {
       //   for (var i = stringLetters.length - 1; i > 0; i--) {
@@ -183,33 +205,33 @@ $("#game").click(function () {
 
 
     }
-   
-    
-   
-//     function startTimer(duration) {
-//       var timer = duration, minutes, seconds;
-//       setInterval(function () {
-//           minutes = parseInt(timer / 60, 10);
-//           seconds = parseInt(timer % 60, 10);
-  
-//           minutes = minutes < 10 ? "0" + minutes : minutes;
-//           seconds = seconds < 10 ? "0" + seconds : seconds;
-  
-//           countDownTimer.innerHTML = minutes + ":" + seconds;
-  
-//           if (--timer < 0) {
-//               timer = duration;
-//           }
-//       }, 1000);
-//   }
-//   window.onload = function () {
-    
-      
-//     startTimer(600);
-// };
-    
 
-   
+
+
+    //     function startTimer(duration) {
+    //       var timer = duration, minutes, seconds;
+    //       setInterval(function () {
+    //           minutes = parseInt(timer / 60, 10);
+    //           seconds = parseInt(timer % 60, 10);
+
+    //           minutes = minutes < 10 ? "0" + minutes : minutes;
+    //           seconds = seconds < 10 ? "0" + seconds : seconds;
+
+    //           countDownTimer.innerHTML = minutes + ":" + seconds;
+
+    //           if (--timer < 0) {
+    //               timer = duration;
+    //           }
+    //       }, 1000);
+    //   }
+    //   window.onload = function () {
+
+
+    //     startTimer(600);
+    // };
+
+
+
     var PointText = document.createElement("h3");
     PointText.className = "pointText";
     PointText.innerHTML = `Puan: ${totalPoint}`;
@@ -240,10 +262,22 @@ $("#game").click(function () {
     $(".letterCards").click(function () {
 
       // checking limit of clicking letters // allowing only answer length.
-      if($(".output").length +1 > questions[UnShuffledQuestionIndexNumber[indexOrigin]].answer.length){
+      if ($(".output").length + 1 > questions[UnShuffledQuestionIndexNumber[indexOrigin]].answer.length) {
         return false;
       }
-     
+       function myFunction(mediaQueryManipulator) {
+         if (mediaQueryManipulator.matches) {
+           if(questions[UnShuffledQuestionIndexNumber[indexOrigin]].answer.length == 6 ){// If media query matches
+           outputVocab.style.gridTemplateColumns = "repeat(6, 2rem)";
+          outputVocab.style.gridTemplateRows = "repeat(6, 2rem)";
+          outputVocab.style.gridGap = "1.7rem";
+        }
+      }
+        
+       }
+       myFunction(mediaQueryManipulator);
+
+
       var output = document.createElement("div");
       output.className = "output";
       outputVocab.appendChild(output);
@@ -281,10 +315,10 @@ $("#game").click(function () {
           // if(deletedVariation =="ARMUT"){
           //   console.log("HELAL");
           // }
-         
+
           var deletedVer = $(".outputText").text();
           console.log(deletedVer);
-          
+
           $(".submitAnswer").click(function () {
             var sound1 = new Audio('./sound effects/CorrectSoundEffect.mp3 ');
 
@@ -292,11 +326,11 @@ $("#game").click(function () {
 
             function playSoundDeletedScenario() {
               if (deletedVer == questions[(UnShuffledQuestionIndexNumber[indexOrigin])].answer) {
-                
+
                 sound1.play(
                   // waitingText.innerHTML = "Doğru Cevap!"
                 );
-                console.log("yiha");
+                // console.log("yiha");
 
               }
               //  else{
@@ -312,7 +346,7 @@ $("#game").click(function () {
 
         }
 
-     
+
 
       });
       var soundSame = new Audio('./sound effects/CorrectSoundEffect.mp3 ');
@@ -338,19 +372,19 @@ $("#game").click(function () {
             console.log("yiha");
             totalPoint = totalPoint + 20 * questions[(UnShuffledQuestionIndexNumber[indexOrigin])].answer.length;
             indexOrigin = indexOrigin + 1;
-            console.log(UnShuffledQuestionIndexNumber[indexOrigin]);
+            // console.log(UnShuffledQuestionIndexNumber[indexOrigin]);
             setTimeout(() => $(".pointText").remove(), 5500);
             setTimeout(() => $(".question").remove(), 5500);
             setTimeout(() => $(".output").remove(), 5500);
             setTimeout(() => $(".letterCards").remove(), 5500);
             setTimeout(() => $(".outputVocab").remove(), 5500);
             // setTimeout(() => $(".countdown").remove(), 5500);
-            
-            
-            setTimeout(() => uploadingElements() , 5500);
-          
-           
-            
+
+
+            setTimeout(() => uploadingElements(), 5500);
+
+
+
 
 
 
@@ -364,12 +398,12 @@ $("#game").click(function () {
 
 
 
-          } 
+          }
           // else{
           //   soundSameWrong.play();
           // }
 
-          
+
         };
         playSoundNormalScenario();
       });

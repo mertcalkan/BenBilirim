@@ -1,5 +1,6 @@
 * {
     font-family: 'Nunito Sans', sans-serif;
+    /* box-sizing : border-box; */
 
 }
 
@@ -198,16 +199,18 @@ h1 {
 }
 @media (min-width: 300px) and (max-width : 767px) {
     .letterCards{
-        height:90%;
-        width:90%;
+        height:110%;
+        width:110%;
     }
     .letterCardsText{
-        font-size:140%;
+        font-size:120%;
+        position:relative;
+        top:-2.5px;
     }
     .output {
         /* margin:10px; */
-        height:90%;
-        width:90%;
+        height:155%;
+        width:155%;
         border-style: solid;
         border-color: rgba(0, 0, 0, 0.578);
         box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
@@ -216,9 +219,9 @@ h1 {
     }
     #LetterCardsArea {
         display: grid;
-        grid-gap: 1rem;
-        grid-template-columns: repeat(6, 3rem);
-        grid-template-rows: repeat(6, 3rem);
+        grid-gap: 1.5rem;
+        grid-template-columns: repeat(5, 3rem);
+        grid-template-rows: repeat(5, 3rem);
         align-items: center;
         justify-content: center;
        
@@ -226,13 +229,15 @@ h1 {
     
     }
     .outputText{
-        font-size:140%;    
+        font-size:140%;  
+        position:relative;
+        bottom:20px;  
     }
     .outputVocab {
         display: grid;
-        grid-gap: 0.5rem;
-        grid-template-columns: repeat(9, 2rem);
-        grid-template-rows: repeat(9, 2rem);
+        grid-gap: 2rem;
+        grid-template-columns: repeat(5, 2rem);
+        grid-template-rows: repeat(5, 2rem);
         align-items: center;
         justify-content: center;
         position:relative;
@@ -240,7 +245,7 @@ h1 {
     }
     .submitAnswer{
         position:absolute;
-        top:60px;
+        top:80px;
        
         background-color: #804FB3;
         color: white;
@@ -252,7 +257,9 @@ h1 {
     }
     .question{
        
-        font-size:17px; 
+        font-size:17px;
+        position:relative;
+        top:10px; 
     }
     .GameName{
         position:relative;
@@ -268,15 +275,15 @@ h1 {
         
     }
     .outputText{
-        font-size:12px;
+        font-size:17px;
         position:relative;
         top:-2px;
     }
     .cross{
-        font-size:6px;
+        font-size:10px;
         position: relative;
-        bottom:43px;
-        left:17px;
+        bottom:52px;
+        left:40px;
     }
     
 
