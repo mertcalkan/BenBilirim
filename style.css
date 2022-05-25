@@ -10,6 +10,23 @@ body {
     background-color: #804FB3;
     height: 100%;
 }
+.rule-text{
+    text-align: center;
+    align-items: center;
+    position:relative;
+     top:5em;
+}
+#gameruletextbig{
+    font-size:30px;
+    position:relative;
+    top:10px;
+}
+.footer{
+    text-align: center;
+    position:relative;
+     top:15em;
+     font-size:20px;
+}
 
 .GameName {
     text-align: center;
@@ -30,7 +47,8 @@ body {
 }
 
 #game,
-#rules {
+#rules,
+.return-menu{
     
     background-color: #804FB3;
     color: white;
@@ -39,6 +57,14 @@ body {
     margin: 20px;
     padding: 10px;
     border-color: black;
+}
+.return-menu{
+   
+ position: relative;
+ top:110px;
+left:40%;
+ justify-content: center;
+
 }
 
 #main {
@@ -285,6 +311,15 @@ h1 {
         bottom:52px;
         left:40px;
     }
-    
+    .footer{
+        top:210px;
+    }
+    .return-menu
+    {
+    left:20%;    
+    }
+    .rule-text{
+        font-size:20px;
+    }
 
 }
