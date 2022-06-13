@@ -1,10 +1,21 @@
+// import { questions } from './questions.js';
+
+
+
 var rules = document.getElementById("rules");
 var play = document.getElementById("game");
 var main = document.getElementById("main");
 var letterCardsArea = document.getElementById("LetterCardsArea");
 // Shuffling our array first of our code. just a preference. you can do it later. depends on algorithm which you set up
 var indexStart = 1;
-var indexEnd = 16;
+var indexEnd = Object.keys(questions).length;
+var QuestionCount = Object.keys(questions).length;
+// var QuestionCount = 1;
+
+console.log(indexEnd);
+// Object.keys(questions).length
+
+
 var mediaQueryManipulator = window.matchMedia("(min-width: 300px) and (max-width: 765px)");
 
 
@@ -17,7 +28,7 @@ while (indexStart < indexEnd + 1) {
 }
 
 var flag = true;
-const startingMinute = 10;
+const startingMinute = 7 / 2;
 let time = startingMinute * 60;
 // Countdown Variables.
 
@@ -86,38 +97,55 @@ $("#game").click(function () {
       setInterval(updateCountDown, 1000)
       flag = false;
     }
+    if (QuestionCount == 0) {
+     
+   
+    if (confirm(`Tebrikler! Bütün soruları doğru yanıtlandınız. Oyunda kazandığınız toplam puan : ${totalPoint}`)) {
+      window.location.href = "/index.html";
+      countDownTimer.style.display = "none";
+      questionText.style.display = "none";
+      
+
+    } else {
+      window.location.href = "/index.html";
+      countDownTimer.style.display = "none";
+      questionText.style.display = "none";
+     
+    }
+    
+    }
 
     function updateCountDown() {
       const minutes = Math.floor(time / 60);
       let seconds = time % 60;
 
       seconds = seconds < 10 ? '0' + seconds : seconds;
-      
-  
+
+
       // if(seconds == seconds < 10 ? '0' + -2 : -2){
       //   return false;
       // }
-    
+
       // if(time > -3){
 
-    
-       
-        
-        
-        countDownTimer.innerHTML = `Süre: ${t_minutes} : ${seconds}`
-        time--;
-        
+
+
+
+
+      countDownTimer.innerHTML = `Süre: ${t_minutes} : ${seconds}`
+      time--;
+
       if ((time == -2)) {
-        countDownTimer.style.display="none";
-       
-        
+        countDownTimer.style.display = "none";
+
+
         // countDownTimer.innerHTML = `Süre: ${0} : ${0}`
         // countDownTimer.innerHTML =`Süre: ${0} : ${0}`
         // alert(`Süreniz bitti. Oyunda kazandığınız toplam puan : ${totalPoint}`);
         if (confirm(`Süreniz bitti. Oyunda kazandığınız toplam puan : ${totalPoint}`)) {
           window.location.href = "/index.html";
-          countDownTimer.style.display="none";
-          
+          countDownTimer.style.display = "none";
+
         } else {
           window.location.href = "/index.html";
         }
@@ -128,7 +156,7 @@ $("#game").click(function () {
 
 
       }
-    // }
+      // }
 
 
       var t_minutes;
@@ -138,7 +166,7 @@ $("#game").click(function () {
         t_minutes = minutes;
       }
       countDownTimer.innerHTML = `Süre: ${t_minutes} : ${seconds}`
-      
+
 
 
     }
@@ -247,9 +275,9 @@ $("#game").click(function () {
     submitAnswer.innerHTML = "Doğru mu Görelim";
 
 
-    // window.onbeforeunload = function () {
-    //   return "Are you sure you want to close the window?";
-    // }
+     window.onbeforeunload = function () {
+      return "Dikkat. Sayfa yenilenecek. Ana ekrana dönmek istediğinizden emin misiniz?";
+   }
     // creating elements dynamically with javascript during the game.
 
 
@@ -265,17 +293,18 @@ $("#game").click(function () {
       if ($(".output").length + 1 > questions[UnShuffledQuestionIndexNumber[indexOrigin]].answer.length) {
         return false;
       }
-       function myFunction(mediaQueryManipulator) {
-         if (mediaQueryManipulator.matches) {
-           if(questions[UnShuffledQuestionIndexNumber[indexOrigin]].answer.length == 6 ){// If media query matches
-           outputVocab.style.gridTemplateColumns = "repeat(6, 2rem)";
-          outputVocab.style.gridTemplateRows = "repeat(6, 2rem)";
-          outputVocab.style.gridGap = "1.7rem";
+
+      function myFunction(mediaQueryManipulator) {
+        if (mediaQueryManipulator.matches) {
+          if (questions[UnShuffledQuestionIndexNumber[indexOrigin]].answer.length == 6) { // If media query matches
+            outputVocab.style.gridTemplateColumns = "repeat(6, 2rem)";
+            outputVocab.style.gridTemplateRows = "repeat(6, 2rem)";
+            outputVocab.style.gridGap = "1.7rem";
+          }
         }
+
       }
-        
-       }
-       myFunction(mediaQueryManipulator);
+      myFunction(mediaQueryManipulator);
 
 
       var output = document.createElement("div");
@@ -368,10 +397,13 @@ $("#game").click(function () {
 
 
             )
+
             // result = "";
             console.log("yiha");
             totalPoint = totalPoint + 20 * questions[(UnShuffledQuestionIndexNumber[indexOrigin])].answer.length;
             indexOrigin = indexOrigin + 1;
+            QuestionCount--;
+            console.log(QuestionCount);
             // console.log(UnShuffledQuestionIndexNumber[indexOrigin]);
             setTimeout(() => $(".pointText").remove(), 5500);
             setTimeout(() => $(".question").remove(), 5500);
